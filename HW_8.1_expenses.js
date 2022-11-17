@@ -16,10 +16,14 @@ let expenses = [
 
 expenses.forEach(function (obj) {
   let total = 0;
-  obj.expenses.forEach(function (value) {
+  obj.expenses.forEach(function (value, index) {
     if (value > 1000) {
       total += value;
+    } else {
+      const date = new Date();
+      date.setMonth(index);
+      const month = date.toLocaleString("default", { month: "long" });
+      console.log(month);
     }
   });
-  console.log(total);
 });
